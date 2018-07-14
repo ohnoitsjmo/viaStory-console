@@ -22,11 +22,16 @@ import { MapComponent } from './map/map.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { AuthguardGuard } from './authguard.guard';
+import { ShareComponent } from './share/share.component';
 
 const appRoutes:Routes = [
   {
     path: '',
     component: LoginComponent
+  },
+  {
+    path: 'share',
+    component: ShareComponent
   },
   {
     path: 'home',
@@ -57,7 +62,8 @@ const appRoutes:Routes = [
     NavbarComponent,
     MapComponent,
     AdminComponent,
-    LoginComponent
+    LoginComponent,
+    ShareComponent
   ],
   imports: [
     BrowserAnimationsModule,

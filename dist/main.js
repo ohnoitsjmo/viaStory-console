@@ -93,7 +93,7 @@ var AdminComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".hidden{\n    display:none;\n}\n.show{\n    display:block;\n}\n#modal-container {\n    position:  fixed;\n    top: 300px;\n    left: 50%;\n    width: 375px;\n    background: white;\n    margin-left: -187.5px;\n    text-align: center;\n    box-shadow: 0px 0px 2px 1px black;\n    z-index: 100;\n}\n#overlay {\n    position: absolute;\n    top: 0px;\n    left:  0px;\n    z-index:  99;\n    background:  rgba(0,0,0,0.8);\n    width:  100%;\n    height: 100%;\n}"
 
 /***/ }),
 
@@ -178,6 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _authguard_guard__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./authguard.guard */ "./src/app/authguard.guard.ts");
+/* harmony import */ var _share_share_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./share/share.component */ "./src/app/share/share.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -208,10 +209,15 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var appRoutes = [
     {
         path: '',
         component: _login_login_component__WEBPACK_IMPORTED_MODULE_21__["LoginComponent"]
+    },
+    {
+        path: 'share',
+        component: _share_share_component__WEBPACK_IMPORTED_MODULE_23__["ShareComponent"]
     },
     {
         path: 'home',
@@ -245,7 +251,8 @@ var AppModule = /** @class */ (function () {
                 _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_18__["NavbarComponent"],
                 _map_map_component__WEBPACK_IMPORTED_MODULE_19__["MapComponent"],
                 _admin_admin_component__WEBPACK_IMPORTED_MODULE_20__["AdminComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_21__["LoginComponent"]
+                _login_login_component__WEBPACK_IMPORTED_MODULE_21__["LoginComponent"],
+                _share_share_component__WEBPACK_IMPORTED_MODULE_23__["ShareComponent"]
             ],
             imports: [
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__["BrowserAnimationsModule"],
@@ -568,7 +575,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div.gallery {\n    margin: 30px;\n    border: 1px solid #ccc;\n    float: left;\n    width: 300px;\n}\n\ndiv.gallery:hover {\n    border: 1px solid #777;\n}\n\ndiv.gallery img {\n    position: relative;\n    width:  300px;\n    height: 300px;\n    background-position: 50% 50%;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n\ndiv.desc {\n    padding: 15px;\n    text-align: center;\n}"
+module.exports = "div.gallery {\n    margin: 30px;\n    border: 1px solid #ccc;\n    float: left;\n    width: 300px;\n}\n\ndiv.gallery:hover {\n    border: 1px solid #777;\n}\n\ndiv.gallery img {\n    position: relative;\n    width:  300px;\n    height: 300px;\n    background-position: 50% 50%;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n\ndiv.desc {\n    padding: 15px;\n    text-align: center;\n}\n\n.modal {\n    display: none; /* Hidden by default */\n    position: fixed; /* Stay in place */\n    z-index: 1; /* Sit on top */\n    left: 0;\n    top: 0;\n    width: 100%; /* Full width */\n    height: 100%; /* Full height */\n    overflow: auto; /* Enable scroll if needed */\n    background-color: rgb(0,0,0); /* Fallback color */\n    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\n}\n\n/* Modal Content/Box */\n\n.modal-content {\n    background-color: #fefefe;\n    margin: 15% auto; /* 15% from the top and centered */\n    padding: 20px;\n    border: 1px solid #888;\n    width: 80%; /* Could be more or less, depending on screen size */\n}\n\n/* The Close Button */\n\n.close {\n    color: #aaa;\n    float: right;\n    font-size: 28px;\n    font-weight: bold;\n}\n\n.close:hover,\n.close:focus {\n    color: black;\n    text-decoration: none;\n    cursor: pointer;\n}"
 
 /***/ }),
 
@@ -579,7 +586,7 @@ module.exports = "div.gallery {\n    margin: 30px;\n    border: 1px solid #ccc;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<html>\n<head>\n</head>\n<body>\n\n<div class=\"gallery\" *ngFor=\"let image of images\">\n  <a target=\"_blank\" href=\"fjords.jpg\">\n    <img src=\"{{image.url}}\" alt=\"Cinque Terre\" width=\"300\" height=\"200\">\n  </a>\n  <div class=\"desc\">Posted by: {{image.username}}</div>\n</div>\n\n</body>\n</html>"
+module.exports = "<app-navbar></app-navbar>\n<html>\n<head>\n</head>\n<body>\n\n<div class=\"gallery\" *ngFor=\"let image of images\">\n  <a target=\"_blank\" href=\"/share\">\n    <img src=\"{{image.url}}\" alt=\"Cinque Terre\" width=\"300\" height=\"200\">\n  </a>\n  <div class=\"desc\">Posted by: {{image.username}}</div>\n</div>\n\n</body>\n</html>"
 
 /***/ }),
 
@@ -852,6 +859,69 @@ var NavbarComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], NavbarComponent);
     return NavbarComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/share/share.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/share/share.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/share/share.component.html":
+/*!********************************************!*\
+  !*** ./src/app/share/share.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  share works!\n</p>"
+
+/***/ }),
+
+/***/ "./src/app/share/share.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/share/share.component.ts ***!
+  \******************************************/
+/*! exports provided: ShareComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShareComponent", function() { return ShareComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ShareComponent = /** @class */ (function () {
+    function ShareComponent() {
+    }
+    ShareComponent.prototype.ngOnInit = function () {
+    };
+    ShareComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-share',
+            template: __webpack_require__(/*! ./share.component.html */ "./src/app/share/share.component.html"),
+            styles: [__webpack_require__(/*! ./share.component.css */ "./src/app/share/share.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ShareComponent);
+    return ShareComponent;
 }());
 
 
