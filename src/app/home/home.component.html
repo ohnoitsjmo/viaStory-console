@@ -1,18 +1,7 @@
 <app-navbar></app-navbar>
-
-<div class="container-fluid text-center">
-  <ul>
-    <li *ngFor="let user of users | async">
-        <pre>{{user.name}}</pre>
-    </li>
-  </ul>
-
 <div class="gallery" *ngFor="let image of images">
   <a target="_blank" href="/share">
     <img src="{{image.url}}" alt="Cinque Terre" width="300" height="200">
   </a>
   <div class="desc">Posted by: {{image.username}}</div>
 </div>
-
-</body>
-</html>

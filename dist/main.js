@@ -639,7 +639,7 @@ module.exports = "div.gallery {\n    margin: 30px;\n    border: 1px solid #ccc;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n\n<div class=\"container-fluid text-center\">\n  <ul>\n    <li *ngFor=\"let user of users | async\">\n        <pre>{{user.name}}</pre>\n    </li>\n  </ul>\n\n<div class=\"gallery\" *ngFor=\"let image of images\">\n  <a target=\"_blank\" href=\"/share\">\n    <img src=\"{{image.url}}\" alt=\"Cinque Terre\" width=\"300\" height=\"200\">\n  </a>\n  <div class=\"desc\">Posted by: {{image.username}}</div>\n</div>\n\n</body>\n</html>"
+module.exports = "<app-navbar></app-navbar>\n<div class=\"gallery\" *ngFor=\"let image of images\">\n  <a target=\"_blank\" href=\"/share\">\n    <img src=\"{{image.url}}\" alt=\"Cinque Terre\" width=\"300\" height=\"200\">\n  </a>\n  <div class=\"desc\">Posted by: {{image.username}}</div>\n</div>"
 
 /***/ }),
 
