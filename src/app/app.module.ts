@@ -17,10 +17,18 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { LoginComponent } from './login/login.component';
+import { AuthguardGuard } from './authguard.guard';
+
 
 const appRoutes:Routes = [
   {
     path: '',
+    component: LoginComponent
+  },
+  {
+    path: 'home',
+    canActivate: [AuthguardGuard],
     component: HomeComponent
   }
 ]
@@ -31,7 +39,8 @@ const appRoutes:Routes = [
     FooterComponent, 
     AppComponent,
     HomeComponent,
-    GalleryComponent
+    GalleryComponent,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -50,7 +59,8 @@ const appRoutes:Routes = [
   entryComponents : [
   ],
   providers: [
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AuthguardGuard
   ],
   bootstrap: [AppComponent]
 })
