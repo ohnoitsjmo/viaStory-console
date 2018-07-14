@@ -455,7 +455,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "div.gallery {\n    margin: 30px;\n    border: 1px solid #ccc;\n    float: left;\n    width: 300px;\n}\n\ndiv.gallery:hover {\n    border: 1px solid #777;\n}\n\ndiv.gallery img {\n    position: relative;\n    width:  300px;\n    height: 300px;\n    background-position: 50% 50%;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n\ndiv.desc {\n    padding: 15px;\n    text-align: center;\n}"
 
 /***/ }),
 
@@ -466,7 +466,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ul>\n  <li *ngFor=\"let user of users | async\">\n      <pre>{{user.name}}</pre>\n  </li>\n</ul>\n\n<div *ngFor=\"let image of images\">\n\t<img src=\"{{image.url}}\"/>\n</div>"
+module.exports = "<html>\n<head>\n</head>\n<body>\n\n<div class=\"gallery\" *ngFor=\"let image of images\">\n  <a target=\"_blank\" href=\"fjords.jpg\">\n    <img src=\"{{image.url}}\" alt=\"Cinque Terre\" width=\"300\" height=\"200\">\n  </a>\n  <div class=\"desc\">Posted by: {{image.username}}</div>\n</div>\n\n</body>\n</html>"
 
 /***/ }),
 

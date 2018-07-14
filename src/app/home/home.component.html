@@ -1,9 +1,14 @@
-<ul>
-  <li *ngFor="let user of users | async">
-      <pre>{{user.name}}</pre>
-  </li>
-</ul>
+<html>
+<head>
+</head>
+<body>
 
-<div *ngFor="let image of images">
-	<img src="{{image.url}}"/>
+<div class="gallery" *ngFor="let image of images">
+  <a target="_blank" href="fjords.jpg">
+    <img src="{{image.url}}" alt="Cinque Terre" width="300" height="200">
+  </a>
+  <div class="desc">Posted by: {{image.username}}</div>
 </div>
+
+</body>
+</html>
