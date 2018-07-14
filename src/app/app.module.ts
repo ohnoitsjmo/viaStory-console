@@ -58,7 +58,7 @@ const appRoutes:Routes = [
     FeedComponent,
     NavbarComponent,
     MapComponent,
-    AdminComponent
+    AdminComponent,
     LoginComponent
   ],
   imports: [
