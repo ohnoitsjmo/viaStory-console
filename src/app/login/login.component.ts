@@ -14,6 +14,7 @@ import {UserService} from '../user.service'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  loggedIn : boolean = false;
   
   constructor(private user: UserService, private router:Router, private http:HttpClient) {}
   ngOnInit() { 

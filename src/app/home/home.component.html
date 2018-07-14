@@ -1,8 +1,11 @@
 <app-navbar></app-navbar>
-<html>
-<head>
-</head>
-<body>
+
+<div class="container-fluid text-center">
+  <ul>
+    <li *ngFor="let user of users | async">
+        <pre>{{user.name}}</pre>
+    </li>
+  </ul>
 
 <div class="gallery" *ngFor="let image of images">
   <a target="_blank" href="fjords.jpg">
