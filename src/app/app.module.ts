@@ -31,6 +31,7 @@ const appRoutes:Routes = [
   },
   {
     path: 'share',
+    canActivate: [AuthguardGuard],
     component: ShareComponent
   },
   {
@@ -40,14 +41,17 @@ const appRoutes:Routes = [
   },
   {
     path: 'feed',
+    canActivate: [AuthguardGuard],
     component: FeedComponent
   },
   {
     path: 'map',
+    canActivate: [AuthguardGuard],
     component: MapComponent
   },
   {
     path:'admin',
+    canActivate: [AuthguardGuard],
     component: AdminComponent
   }
 ]
