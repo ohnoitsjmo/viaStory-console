@@ -15,7 +15,6 @@ import { HomeComponent } from './home/home.component';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
-import { GalleryComponent } from './gallery/gallery.component';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FeedComponent } from './feed/feed.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -54,7 +53,6 @@ const appRoutes:Routes = [
     FooterComponent, 
     AppComponent,
     HomeComponent,
-    GalleryComponent,
     FeedComponent,
     NavbarComponent,
     MapComponent,
