@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"margin\" id=\"fullPage\">\n  <app-header></app-header>\n  <div class=\"content\">\n    <router-outlet></router-outlet>\n  <div>\n  <app-footer></app-footer>\n</div>  "
+module.exports = "<div class=\"margin\" id=\"fullPage\">\n  <app-header></app-header>\n  <router-outlet></router-outlet>\n  <app-footer></app-footer>\n</div>  "
 
 /***/ }),
 
@@ -110,6 +110,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./gallery/gallery.component */ "./src/app/gallery/gallery.component.ts");
 /* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _authguard_guard__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./authguard.guard */ "./src/app/authguard.guard.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -135,9 +137,16 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var appRoutes = [
     {
         path: '',
+        component: _login_login_component__WEBPACK_IMPORTED_MODULE_18__["LoginComponent"]
+    },
+    {
+        path: 'home',
+        canActivate: [_authguard_guard__WEBPACK_IMPORTED_MODULE_19__["AuthguardGuard"]],
         component: _home_home_component__WEBPACK_IMPORTED_MODULE_12__["HomeComponent"]
     }
 ];
@@ -151,7 +160,8 @@ var AppModule = /** @class */ (function () {
                 _footer_footer_component__WEBPACK_IMPORTED_MODULE_5__["FooterComponent"],
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_12__["HomeComponent"],
-                _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_16__["GalleryComponent"]
+                _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_16__["GalleryComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_18__["LoginComponent"]
             ],
             imports: [
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__["BrowserAnimationsModule"],
@@ -169,12 +179,80 @@ var AppModule = /** @class */ (function () {
             ],
             entryComponents: [],
             providers: [
-                angularfire2_database__WEBPACK_IMPORTED_MODULE_17__["AngularFireDatabaseModule"]
+                angularfire2_database__WEBPACK_IMPORTED_MODULE_17__["AngularFireDatabaseModule"],
+                _authguard_guard__WEBPACK_IMPORTED_MODULE_19__["AuthguardGuard"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/authguard.guard.ts":
+/*!************************************!*\
+  !*** ./src/app/authguard.guard.ts ***!
+  \************************************/
+/*! exports provided: AuthguardGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthguardGuard", function() { return AuthguardGuard; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user.service */ "./src/app/user.service.ts");
+/* harmony import */ var rxjs_add_operator_map__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/add/operator/map */ "./node_modules/rxjs-compat/_esm5/add/operator/map.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var AuthguardGuard = /** @class */ (function () {
+    function AuthguardGuard(user, db, router, http) {
+        this.user = user;
+        this.db = db;
+        this.router = router;
+        this.http = http;
+    }
+    AuthguardGuard.prototype.canActivate = function (next, state) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.db.collection('/userAuth').doc('VQ3Y5ufxgGSAChehiMhY').valueChanges().subscribe(function (results) {
+                _this.users = results['authentication'];
+                for (var i = 0; i < _this.users.length; i++) {
+                    if (_this.user.username == _this.users[i].username) {
+                        if (_this.user.password == _this.users[i].password) {
+                            resolve(true);
+                            return;
+                        }
+                    }
+                }
+                _this.router.navigate(['']);
+                resolve(false);
+            });
+        });
+    };
+    AuthguardGuard = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"], angularfire2_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], AuthguardGuard);
+    return AuthguardGuard;
 }());
 
 
@@ -443,6 +521,133 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/login/login.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/login/login.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.html":
+/*!********************************************!*\
+  !*** ./src/app/login/login.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container centerpage\">\n\n  <!-- <div class=\"col-md-4 col-md-offset-4\"></div> -->\n\n  <div class=\"col-md-4 col-md-offset-4\">\n   <br>\n   <br>\n    <section>\n      <div class=\"panel panel-default\">\n        <h3 class=\"text-center\"><b>Sign In</b></h3>\n        <div class=\"panel-body\">\n          <form (submit)=\"authenticateCurrentUser($event)\">\n          <div class=\"input-group input-group-lg\">\n            <span class=\"input-group-addon\" id=\"sizing-addon1\"><i class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></i></span>\n            <input type=\"text\" name=\"username\" id=\"username\" class=\"form-control\" placeholder=\"Enter Username\" aria-describedby=\"sizing-addon1\" required>\n          </div>\n          <br>\n          <div class=\"input-group input-group-lg\">\n            <span class=\"input-group-addon\" id=\"sizing-addon1\"><i class=\"glyphicon glyphicon-asterisk\" aria-hidden=\"true\"></i></span>\n            <input type=\"password\" name=\"password\" id=\"password\" class=\"form-control\" placeholder=\"Enter Password\" aria-describedby=\"sizing-addon1\" required>\n          </div>\n          <br>\n           <button type=\"submit\" class=\"btn btn-block myclass\">Sign in</button>\n          <br>\n          </form>\n        </div>\n      </div>\n    </section>\n  </div> \n\n  <!-- <div class=\"col-md-4 col-md-offset-4\"></div> -->\n\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/login/login.component.ts ***!
+  \******************************************/
+/*! exports provided: LoginComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/* LoginFormComponent is the page where users authenticate
+ * their credentials with the Viasat LDAP server. It acts as
+ * the wall that users must get past to use PlanWizard.
+ */
+var LoginComponent = /** @class */ (function () {
+    function LoginComponent(user, router, http) {
+        this.user = user;
+        this.router = router;
+        this.http = http;
+    }
+    LoginComponent.prototype.ngOnInit = function () {
+    };
+    LoginComponent.prototype.authenticateCurrentUser = function (e) {
+        e.preventDefault();
+        this.user.setUser(e.target.elements[0].value);
+        this.user.setPass(e.target.elements[1].value);
+        this.router.navigate(['/home']);
+    };
+    LoginComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-login',
+            template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
+            styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
+        }),
+        __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], LoginComponent);
+    return LoginComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/user.service.ts":
+/*!*********************************!*\
+  !*** ./src/app/user.service.ts ***!
+  \*********************************/
+/*! exports provided: UserService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var UserService = /** @class */ (function () {
+    function UserService() {
+        this.username = "";
+        this.password = "";
+    }
+    UserService.prototype.setUser = function (user) {
+        this.username = user;
+    };
+    UserService.prototype.setPass = function (pass) {
+        this.password = pass;
+    };
+    UserService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], UserService);
+    return UserService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -511,7 +716,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/jmo/Documents/viaStory/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/jmo/Documents/viaStory-console/src/main.ts */"./src/main.ts");
 
 
 /***/ })
