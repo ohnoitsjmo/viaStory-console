@@ -49,6 +49,11 @@ const appRoutes:Routes = [
   {
     path:'admin',
     component: AdminComponent
+  },
+  {
+    path:'share',
+    canActivate: [AuthguardGuard],
+    component: ShareComponent
   }
 ]
 

@@ -1,0 +1,31 @@
+div {
+    text-align: center;
+}
+
+.fa {
+    padding: 50px;
+    margin:50px;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    width:130px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-instagram {
+    background: linear-gradient(to bottom right, #4c68d7, #8a3ab9, #cd486b, #fbad50, #fccc63)
+}
