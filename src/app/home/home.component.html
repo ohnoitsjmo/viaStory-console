@@ -1,9 +1,12 @@
-<ul>
-  <li *ngFor="let user of users | async">
-      <pre>{{user.name}}</pre>
-  </li>
-</ul>
+<app-navbar></app-navbar>
+<div class="container-fluid text-center">
+  <ul>
+    <li *ngFor="let user of users | async">
+        <pre>{{user.name}}</pre>
+    </li>
+  </ul>
 
-<div *ngFor="let image of images">
-	<img src="{{image.url}}"/>
+  <div *ngFor="let image of images">
+    <img src="{{image.url}}"/>
+  </div>
 </div>

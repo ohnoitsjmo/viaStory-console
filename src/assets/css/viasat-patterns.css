@@ -341,7 +341,7 @@ footer .single-col-footer .col-lg-12 { border: none !important; }
 footer .four-column-footer { background-color: #202e39;padding: 0 15px; }
 footer .four-column-footer-border { border-bottom: 1px solid #465967; }
 footer .four-column-footer .col-md-3, footer .four-column-footer .col-lg-3 { border: none;padding: 15px;min-height: 65px; }
-footer .four-column-footer .logo-column-one { border-left: 1px solid #465967;padding: 30px; height: 35%; }
+footer .four-column-footer .logo-column-one { border-left: 1px solid #465967;padding: 30px; height: 34%; }
 footer .four-column-footer img { max-width: 125px;padding: 0 0 48px 0; }
 
 footer .three-column-footer { background-color: #202e39;padding: 15px; }

@@ -17,11 +17,18 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FeedComponent } from './feed/feed.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MapComponent } from './map/map.component';
 
 const appRoutes:Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'feed',
+    component: FeedComponent
   }
 ]
 
@@ -31,7 +38,10 @@ const appRoutes:Routes = [
     FooterComponent, 
     AppComponent,
     HomeComponent,
-    GalleryComponent
+    GalleryComponent,
+    FeedComponent,
+    NavbarComponent,
+    MapComponent
   ],
   imports: [
     BrowserAnimationsModule,

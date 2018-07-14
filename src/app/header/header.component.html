@@ -1,3 +1,141 @@
-<p class="text-primary">
-  header works!
-</p>
+<ng-container *ngIf="!loggedIn">
+  <div class="container padzero">
+   <div class="row padmarzero">
+    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+    </div>
+    <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+      <a routerLink="/home">
+          <img class="img-responsive page-logo" src="assets/viasat.png"/>
+      </a>
+    </div>
+   <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"></div>
+   </div>
+  </div>
+  </ng-container>
+  
+  <ng-container *ngIf="loggedIn">
+    <div class="fw hdr">
+      <!-- HEADER -->
+        <div class="hdr-bg"></div>
+        <div class="hdr fw-vp">
+          <div class="hdr-brand">
+            <a data-track-content data-content-name="Header-utility" data-content-piece="h_link_logo_1" href="#"><img src="http://ux.viasat.io/wp-content/uploads/2017/11/viasat-grd-logo.png" class="" alt="Viasat Logo : Click to go back to homepage"></a>
+          </div>
+          <div class="hdr-utility">
+            <button data-track-content data-content-name="Header-utility" data-content-piece="h_button_search_1" type="search" class="btn btn-hdr" name="search" value="Search" data-toggle="modal" data-target="#searchModal">
+              <i class="material-icons md-icon">search</i>
+            </button>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="btn btn-hdr avatar-container"> 
+                <a data-track-content data-content-name="Header-utility" data-content-piece="h_button_user_1" href="#" class="avatar-icon" role="button" aria-haspopup="true" data-toggle="modal" data-target="#profileModal" aria-expanded="false">{{ myUser.givenName }}<span class="nav-arrow" role="drop down arrow"></span></a> 
+              </li> 
+            </ul>
+            <button (click)="user.logOutCurrentUser()" class="btn btn-hdr">  
+              <b>Log Out  </b>
+              <i class="material-icons md-icon">exit_to_app</i>
+            </button>
+          </div>
+          <!--<div class="placeholder-div text-center"><span class="h3">Header FPO</span></div>-->
+          <!-- Search Modal -->
+          <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog search-modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+              <div class="row">
+                    <div class="col-sm-6 col-md-12">
+                        <div id="imaginary_container"> 
+                            <div class="input-group stylish-input-group">
+                                <input type="text" class="form-control"  placeholder="Search any keyword" >
+                                <span class="input-group-addon">
+                                    <button data-track-content data-content-name="Header-utility" data-content-piece="h_button_search_sec_1" type="submit">
+                                        <i class="material-icons md-icon md-search-icon">search</i>
+                                    </button>  
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of Search Modal -->
+          <!-- Profile Modal -->
+          <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog profile-modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                  <h1>{{ myUser.displayName }}</h1>
+                </div>
+                <div class="modal-footer">
+                  <ul class="nav nav-tabs">
+                    <li tabindex="0"><a data-track-content data-content-name="Header-utility" data-content-piece="h_link_logout_1"  data-toggle="tab" href="#tab-three">Log Out</a></li>
+                    <li tabindex="0"><a data-track-content data-content-name="Header-utility" data-content-piece="h_link_settings_1"  data-toggle="tab" href="#tab-two">Settings</a></li> 
+                <li tabindex="0"><a data-track-content data-content-name="Header-utility" data-content-piece="h_link_profile_sec_1"  data-toggle="tab" href="#tab-one">Profile</a></li>       
+                </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of Profile Modal -->
+        </div>
+        <!-- TOP NAVBAR -->
+        <div class="hdr-navbar hide-desktop"> <!-- add dark class for 'dark" nav-->
+          <div class="navbar yamm fw-vp">
+            <div class="navbar-header">
+              <div class="hdr-brand hide-desktop"><a data-track-content data-content-name="Header-utility" data-content-piece="h_link_logo_1" href="#"><img src="http://ux.viasat.io/wp-content/uploads/2017/11/viasat-grd-logo.png" class="" alt="Viasat Logo : Click to go back to homepage"></a></div>
+              <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" class="navbar-toggle collapsed" tabindex="0" touchstart="">
+                <div class="menu-text">MENU</div>
+                <div class="menu-icon">
+                  <span class="icon-bar top-bar"></span>
+                  <span class="icon-bar middle-bar"></span>
+                  <span class="icon-bar bottom-bar"></span>
+                </div>
+              </button>
+            </div>
+            <div id="navbar-collapse-grid" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav" role="tablist">
+                <li>
+                  <form class="navbar-form hide-desktop"> 
+                    <div class="form-group"> 
+                      <input class="form-control" placeholder="Search keywords">
+                      <i data-track-content data-content-name="Header-utility" data-content-piece="h_button_search_2" class="material-icons utility-nav-search-icon">search</i>
+                    </div> 
+                  </form>
+                </li>
+      
+                <!-- Navigation goes here -->
+      
+                <li class="hide-desktop">
+                  <span class="utitlity-nav-divider"></span>
+                </li>
+                <li class="hide-desktop">
+                  <a href="#" class="user-profile utility-nav-mobile">
+                    <h3>{{ myUser.displayName }}</h3>
+                  </a>
+                  <a data-track-content data-content-name="Header-utility" data-content-piece="h_link_profile_sec_1" href="#" class="utility-nav-mobile">View profile <i class="material-icons utility-nav-profile-icon">person_outline</i>
+                  </a>
+                </li>
+                <li class="hide-desktop">
+                  <a data-track-content data-content-name="Header-utility" data-content-piece="h_button_notif_1" href="#" class="utility-nav-mobile">Notifications <i class="material-icons md-icon utility-nav-notification-icon">notifications_none</i><span class="badge badge-notify">3</span></a>
+                </li>
+                <li class="hide-desktop">
+                  <a data-track-content data-content-name="Header-utility" data-content-piece="h_link_settings_1" href="#" class="utility-nav-mobile utility-nav-settings">Settings <i class="material-icons utility-nav-settings-icon">settings</i></a>
+                </li>
+                <li class="hide-desktop">
+                  <a data-track-content data-content-name="Header-utility" data-content-piece="h_link_logout_1" href="#" class="utility-nav-mobile utility-nav-logout">Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- ** TOP NAVBAR ** -->
+      </div>
+  
+  </ng-container>

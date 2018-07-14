@@ -110,6 +110,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./gallery/gallery.component */ "./src/app/gallery/gallery.component.ts");
 /* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
+/* harmony import */ var _feed_feed_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./feed/feed.component */ "./src/app/feed/feed.component.ts");
+/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
+/* harmony import */ var _map_map_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./map/map.component */ "./src/app/map/map.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -135,10 +138,17 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
 var appRoutes = [
     {
         path: '',
         component: _home_home_component__WEBPACK_IMPORTED_MODULE_12__["HomeComponent"]
+    },
+    {
+        path: 'feed',
+        component: _feed_feed_component__WEBPACK_IMPORTED_MODULE_18__["FeedComponent"]
     }
 ];
 var AppModule = /** @class */ (function () {
@@ -151,7 +161,10 @@ var AppModule = /** @class */ (function () {
                 _footer_footer_component__WEBPACK_IMPORTED_MODULE_5__["FooterComponent"],
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_12__["HomeComponent"],
-                _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_16__["GalleryComponent"]
+                _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_16__["GalleryComponent"],
+                _feed_feed_component__WEBPACK_IMPORTED_MODULE_18__["FeedComponent"],
+                _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_19__["NavbarComponent"],
+                _map_map_component__WEBPACK_IMPORTED_MODULE_20__["MapComponent"]
             ],
             imports: [
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__["BrowserAnimationsModule"],
@@ -175,6 +188,69 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/feed/feed.component.css":
+/*!*****************************************!*\
+  !*** ./src/app/feed/feed.component.css ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/feed/feed.component.html":
+/*!******************************************!*\
+  !*** ./src/app/feed/feed.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  feed works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/feed/feed.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/feed/feed.component.ts ***!
+  \****************************************/
+/*! exports provided: FeedComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FeedComponent", function() { return FeedComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FeedComponent = /** @class */ (function () {
+    function FeedComponent() {
+    }
+    FeedComponent.prototype.ngOnInit = function () {
+    };
+    FeedComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-feed',
+            template: __webpack_require__(/*! ./feed.component.html */ "./src/app/feed/feed.component.html"),
+            styles: [__webpack_require__(/*! ./feed.component.css */ "./src/app/feed/feed.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], FeedComponent);
+    return FeedComponent;
 }());
 
 
@@ -314,7 +390,7 @@ var GalleryComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".logowidth{\r\n\twidth: 95px;\r\n}\r\n\r\n.betaheader {\r\n\tcolor: red;\r\n\tfont-style: italic;\r\n}\r\n\r\nheader {\r\n\ttext-align: center;\r\n\tpadding: 20px 0px;\r\n\tfont-size: 30px;\r\n\tborder-bottom: 2px solid #eee;\r\n}\r\n\r\n.pushright{\r\n\tfloat: right !important;\r\n}\r\n\r\n.padmarzero {\r\n\tpadding: 0 !important;\r\n\tmargin: 0 !important;\r\n}\r\n\r\n.padzero {\r\n\tpadding: 0 !important;\r\n}\r\n\r\n.logout {\r\n\tcolor: black;\r\n}\r\n\r\nh2 {\r\n\tmargin-top: 15px;\r\n    margin-left: 5px;\r\n\tmargin-bottom: 0px;\r\n}\r\n\r\n.logout {\r\n\tfont-size: 1em;\r\n\ttext-align: left;\r\n}\r\n\r\n.page-logo { \r\n\tdisplay: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n\twidth: 50%;\r\n}\r\n\r\n.table th {\r\n\ttext-align: center;\r\n}"
 
 /***/ }),
 
@@ -325,7 +401,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"text-primary\">\r\n  header works!\r\n</p>\r\n"
+module.exports = "<ng-container *ngIf=\"!loggedIn\">\r\n  <div class=\"container padzero\">\r\n   <div class=\"row padmarzero\">\r\n    <div class=\"col-md-2 col-lg-2 col-sm-2 col-xs-2\">\r\n    </div>\r\n    <div class=\"col-md-8 col-lg-8 col-sm-8 col-xs-8\">\r\n      <a routerLink=\"/home\">\r\n          <img class=\"img-responsive page-logo\" src=\"assets/viasat.png\"/>\r\n      </a>\r\n    </div>\r\n   <div class=\"col-md-2 col-lg-2 col-sm-2 col-xs-2\"></div>\r\n   </div>\r\n  </div>\r\n  </ng-container>\r\n  \r\n  <ng-container *ngIf=\"loggedIn\">\r\n    <div class=\"fw hdr\">\r\n      <!-- HEADER -->\r\n        <div class=\"hdr-bg\"></div>\r\n        <div class=\"hdr fw-vp\">\r\n          <div class=\"hdr-brand\">\r\n            <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_logo_1\" href=\"#\"><img src=\"http://ux.viasat.io/wp-content/uploads/2017/11/viasat-grd-logo.png\" class=\"\" alt=\"Viasat Logo : Click to go back to homepage\"></a>\r\n          </div>\r\n          <div class=\"hdr-utility\">\r\n            <button data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_button_search_1\" type=\"search\" class=\"btn btn-hdr\" name=\"search\" value=\"Search\" data-toggle=\"modal\" data-target=\"#searchModal\">\r\n              <i class=\"material-icons md-icon\">search</i>\r\n            </button>\r\n            <ul class=\"nav navbar-nav navbar-right\">\r\n              <li class=\"btn btn-hdr avatar-container\"> \r\n                <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_button_user_1\" href=\"#\" class=\"avatar-icon\" role=\"button\" aria-haspopup=\"true\" data-toggle=\"modal\" data-target=\"#profileModal\" aria-expanded=\"false\">{{ myUser.givenName }}<span class=\"nav-arrow\" role=\"drop down arrow\"></span></a> \r\n              </li> \r\n            </ul>\r\n            <button (click)=\"user.logOutCurrentUser()\" class=\"btn btn-hdr\">  \r\n              <b>Log Out  </b>\r\n              <i class=\"material-icons md-icon\">exit_to_app</i>\r\n            </button>\r\n          </div>\r\n          <!--<div class=\"placeholder-div text-center\"><span class=\"h3\">Header FPO</span></div>-->\r\n          <!-- Search Modal -->\r\n          <div class=\"modal fade\" id=\"searchModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\">\r\n            <div class=\"modal-dialog search-modal-dialog\" role=\"document\">\r\n              <div class=\"modal-content\">\r\n                <div class=\"modal-header\">\r\n                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\r\n                </div>\r\n                <div class=\"modal-body\">\r\n              <div class=\"row\">\r\n                    <div class=\"col-sm-6 col-md-12\">\r\n                        <div id=\"imaginary_container\"> \r\n                            <div class=\"input-group stylish-input-group\">\r\n                                <input type=\"text\" class=\"form-control\"  placeholder=\"Search any keyword\" >\r\n                                <span class=\"input-group-addon\">\r\n                                    <button data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_button_search_sec_1\" type=\"submit\">\r\n                                        <i class=\"material-icons md-icon md-search-icon\">search</i>\r\n                                    </button>  \r\n                                </span>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n              </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <!-- End of Search Modal -->\r\n          <!-- Profile Modal -->\r\n          <div class=\"modal fade\" id=\"profileModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\">\r\n            <div class=\"modal-dialog profile-modal-dialog\" role=\"document\">\r\n              <div class=\"modal-content\">\r\n                <div class=\"modal-header\">\r\n                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\r\n                </div>\r\n                <div class=\"modal-body\">\r\n                  <h1>{{ myUser.displayName }}</h1>\r\n                </div>\r\n                <div class=\"modal-footer\">\r\n                  <ul class=\"nav nav-tabs\">\r\n                    <li tabindex=\"0\"><a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_logout_1\"  data-toggle=\"tab\" href=\"#tab-three\">Log Out</a></li>\r\n                    <li tabindex=\"0\"><a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_settings_1\"  data-toggle=\"tab\" href=\"#tab-two\">Settings</a></li> \r\n                <li tabindex=\"0\"><a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_profile_sec_1\"  data-toggle=\"tab\" href=\"#tab-one\">Profile</a></li>       \r\n                </ul>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <!-- End of Profile Modal -->\r\n        </div>\r\n        <!-- TOP NAVBAR -->\r\n        <div class=\"hdr-navbar hide-desktop\"> <!-- add dark class for 'dark\" nav-->\r\n          <div class=\"navbar yamm fw-vp\">\r\n            <div class=\"navbar-header\">\r\n              <div class=\"hdr-brand hide-desktop\"><a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_logo_1\" href=\"#\"><img src=\"http://ux.viasat.io/wp-content/uploads/2017/11/viasat-grd-logo.png\" class=\"\" alt=\"Viasat Logo : Click to go back to homepage\"></a></div>\r\n              <button type=\"button\" data-toggle=\"collapse\" data-target=\"#navbar-collapse-grid\" class=\"navbar-toggle collapsed\" tabindex=\"0\" touchstart=\"\">\r\n                <div class=\"menu-text\">MENU</div>\r\n                <div class=\"menu-icon\">\r\n                  <span class=\"icon-bar top-bar\"></span>\r\n                  <span class=\"icon-bar middle-bar\"></span>\r\n                  <span class=\"icon-bar bottom-bar\"></span>\r\n                </div>\r\n              </button>\r\n            </div>\r\n            <div id=\"navbar-collapse-grid\" class=\"navbar-collapse collapse\">\r\n              <ul class=\"nav navbar-nav\" role=\"tablist\">\r\n                <li>\r\n                  <form class=\"navbar-form hide-desktop\"> \r\n                    <div class=\"form-group\"> \r\n                      <input class=\"form-control\" placeholder=\"Search keywords\">\r\n                      <i data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_button_search_2\" class=\"material-icons utility-nav-search-icon\">search</i>\r\n                    </div> \r\n                  </form>\r\n                </li>\r\n      \r\n                <!-- Navigation goes here -->\r\n      \r\n                <li class=\"hide-desktop\">\r\n                  <span class=\"utitlity-nav-divider\"></span>\r\n                </li>\r\n                <li class=\"hide-desktop\">\r\n                  <a href=\"#\" class=\"user-profile utility-nav-mobile\">\r\n                    <h3>{{ myUser.displayName }}</h3>\r\n                  </a>\r\n                  <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_profile_sec_1\" href=\"#\" class=\"utility-nav-mobile\">View profile <i class=\"material-icons utility-nav-profile-icon\">person_outline</i>\r\n                  </a>\r\n                </li>\r\n                <li class=\"hide-desktop\">\r\n                  <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_button_notif_1\" href=\"#\" class=\"utility-nav-mobile\">Notifications <i class=\"material-icons md-icon utility-nav-notification-icon\">notifications_none</i><span class=\"badge badge-notify\">3</span></a>\r\n                </li>\r\n                <li class=\"hide-desktop\">\r\n                  <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_settings_1\" href=\"#\" class=\"utility-nav-mobile utility-nav-settings\">Settings <i class=\"material-icons utility-nav-settings-icon\">settings</i></a>\r\n                </li>\r\n                <li class=\"hide-desktop\">\r\n                  <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_logout_1\" href=\"#\" class=\"utility-nav-mobile utility-nav-logout\">Logout</a>\r\n                </li>\r\n              </ul>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <!-- ** TOP NAVBAR ** -->\r\n      </div>\r\n  \r\n  </ng-container>\r\n"
 
 /***/ }),
 
@@ -340,6 +416,7 @@ module.exports = "<p class=\"text-primary\">\r\n  header works!\r\n</p>\r\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -350,10 +427,38 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+// import { UserService } from '../user.service';
+// import { UserObject } from '../userobject';
+/* HeaderComponent is the header element that displays at the top of
+ * each page and has log out functionality as well as search and a
+ * logo that links back home.
+ */
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent() {
-    }
+    // myUser : UserObject;
+    function HeaderComponent(route, router) {
+        this.route = route;
+        this.router = router;
+        this.loggedIn = false;
+    } //,private user:UserService) { }
     HeaderComponent.prototype.ngOnInit = function () {
+        this.loggedIn = true;
+        //   this.router.events
+        //   .subscribe((event) => {
+        //     if(event instanceof NavigationEnd ){
+        //       debugger;
+        //       if(this.router.url == "/"){
+        //         this.loggedIn = false;
+        //       } else {
+        //         this.loggedIn = true;
+        //       }
+        //     }
+        //     this.user.getUser().subscribe((res) => {
+        //       if(res['isAuthenticated'] == true) {
+        //         this.myUser = this.user.createUserObject(res['username'], res['email'], res['givenName'], res['displayName']);
+        //       }
+        //     });
+        //   })
     };
     HeaderComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -361,7 +466,7 @@ var HeaderComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./header.component.html */ "./src/app/header/header.component.html"),
             styles: [__webpack_require__(/*! ./header.component.css */ "./src/app/header/header.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], HeaderComponent);
     return HeaderComponent;
 }());
@@ -388,7 +493,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ul>\r\n  <li *ngFor=\"let user of users | async\">\r\n      <pre>{{user.name}}</pre>\r\n  </li>\r\n</ul>\r\n\r\n<div *ngFor=\"let image of images\">\r\n\t<img src=\"{{image.url}}\"/>\r\n</div>"
+module.exports = "<app-navbar></app-navbar>\r\n<div class=\"container-fluid text-center\">\r\n  <ul>\r\n    <li *ngFor=\"let user of users | async\">\r\n        <pre>{{user.name}}</pre>\r\n    </li>\r\n  </ul>\r\n\r\n  <div *ngFor=\"let image of images\">\r\n    <img src=\"{{image.url}}\"/>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -437,6 +542,136 @@ var HomeComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
     ], HomeComponent);
     return HomeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/map/map.component.css":
+/*!***************************************!*\
+  !*** ./src/app/map/map.component.css ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/map/map.component.html":
+/*!****************************************!*\
+  !*** ./src/app/map/map.component.html ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  map works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/map/map.component.ts":
+/*!**************************************!*\
+  !*** ./src/app/map/map.component.ts ***!
+  \**************************************/
+/*! exports provided: MapComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapComponent", function() { return MapComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var MapComponent = /** @class */ (function () {
+    function MapComponent() {
+    }
+    MapComponent.prototype.ngOnInit = function () {
+    };
+    MapComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-map',
+            template: __webpack_require__(/*! ./map.component.html */ "./src/app/map/map.component.html"),
+            styles: [__webpack_require__(/*! ./map.component.css */ "./src/app/map/map.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], MapComponent);
+    return MapComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/navbar/navbar.component.css":
+/*!*********************************************!*\
+  !*** ./src/app/navbar/navbar.component.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/navbar/navbar.component.html":
+/*!**********************************************!*\
+  !*** ./src/app/navbar/navbar.component.html ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"fw\">\n  <!-- TOP NAVBAR -->\n    <div class=\"hdr-bg hide-desktop\"></div>\n  <div class=\"hdr-navbar\"> <!-- add dark class for 'dark\" nav-->\n    <div class=\"navbar yamm fw-vp\">\n      <div class=\"navbar-header\">\n        <div class=\"hdr-brand hide-desktop\"><a data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"h_link_logo_1\" href=\"#\"><img src=\"http://10.60.94.73/wp-content/uploads/2017/11/viasat-grd-logo.png\" class=\"\" alt=\"Viasat Logo : Click to go back to homepage\"></a></div>\n        <button data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_button_hammenu_1\" cc=\"nav_button_hammenu_1\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbar-collapse-grid\" class=\"navbar-toggle collapsed\" tabindex=\"0\" touchstart=\"\">\n          <div class=\"menu-text\">MENU</div>\n          <div class=\"menu-icon\">\n            <span class=\"icon-bar top-bar\"></span>\n            <span class=\"icon-bar middle-bar\"></span>\n            <span class=\"icon-bar bottom-bar\"></span>\n          </div>\n        </button>\n      </div>\n      <div id='overlay'></div>\n      <div id=\"navbar-collapse-grid\" class=\"navbar-collapse collapse\">\n        <ul class=\"nav navbar-nav\" role=\"tablist\">\n\n          <!-- <li class=\"dropdown yamm classic\">\n            <a data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"primary_link_home\" cc=\"primary_link_home\" href=\"/home\" aria-expanded=\"false\" touchstart=\"\">Home</a>\n          </li>\n\n          <li class=\"dropdown yamm classic\">\n              <a data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"primary_link_create\" cc=\"primary_link_create\" href=\"/create\" aria-expanded=\"false\" touchstart=\"\">Create</a>\n          </li>\n          <li class=\"dropdown yamm classic\">\n              <a data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"primary_link_admin\" cc=\"primary_link_admin\" href=\"/build\" aria-expanded=\"false\" touchstart=\"\">Build</a>\n          </li>\n          <li class=\"dropdown yamm classic\">\n              <a data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"primary_link_admin\" cc=\"primary_link_admin\" href=\"/admin\" aria-expanded=\"false\" touchstart=\"\">Admin</a>\n          </li> -->\n\n          <!-- Utility Nav Mobile Search <li> goes here -->\n<!--   \n          <li class=\"dropdown yamm classic active\"><a data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"primary_link_1\" cc=\"primary_link_1\" href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\" aria-expanded=\"false\" touchstart=\"\">Primary one <span class=\"nav-arrow\" role=\"drop down arrow\"></span></a>\n            <ul class=\"dropdown-menu\">\n              <li>\n                <div>\n                  <ul>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_1_1\" cc=\"nav_link_sec_1_1 active_link\" class=\"active\" tabindex=\"0\" touchstart=\"\">Secondary item one</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_1_2\" cc=\"nav_link_sec_1_2\" tabindex=\"0\" touchstart=\"\">Secondary item two</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_1_3\" cc=\"nav_link_sec_1_3\" tabindex=\"0\" touchstart=\"\">Secondary item three</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_1_4\" cc=\"nav_link_sec_1_4\" tabindex=\"0\" touchstart=\"\">Secondary item four</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_1_5\" cc=\"nav_link_sec_1_5\" tabindex=\"0\" touchstart=\"\">Secondary item five</li>\n                  </ul>\n                </div>\n              </li>\n            </ul>\n          </li>\n\n          <li class=\"dropdown yamm classic\"><a data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"primary_link_2\" cc=\"primary_link_2\" href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\" aria-expanded=\"false\" touchstart=\"\">Primary two <span class=\"nav-arrow\" role=\"drop down arrow\"></span></a>\n            <ul class=\"dropdown-menu\">\n              <li>\n                <div>\n                  <ul>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_2_1\" cc=\"nav_link_sec_2_1\" tabindex=\"0\" touchstart=\"\">Secondary item one</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_2_2\" cc=\"nav_link_sec_2_2\" tabindex=\"0\" touchstart=\"\">Secondary item two</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_2_3\" cc=\"nav_link_sec_2_3\" tabindex=\"0\" touchstart=\"\">Secondary item three</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_2_4\" cc=\"nav_link_sec_2_4\" tabindex=\"0\" touchstart=\"\">Secondary item four</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_2_5\" cc=\"nav_link_sec_2_5\" tabindex=\"0\" touchstart=\"\">Secondary item five</li>\n                  </ul>\n                </div>\n              </li>\n            </ul>\n          </li>\n          \n          <li class=\"dropdown yamm classic\"><a data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"primary_link_3\" cc=\"primary_link_3\" href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\" aria-expanded=\"false\" touchstart=\"\">Primary three <span class=\"nav-arrow\" role=\"drop down arrow\"></span></a>\n            <ul class=\"dropdown-menu\">\n              <li>\n                <div>\n                  <ul>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_3_1\" cc=\"nav_link_sec_3_1\" tabindex=\"0\" touchstart=\"\">Secondary item one</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_3_2\" cc=\"nav_link_sec_3_2\" tabindex=\"0\" touchstart=\"\">Secondary item two</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_3_3\" cc=\"nav_link_sec_3_3\" tabindex=\"0\" touchstart=\"\">Secondary item three</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_3_4\" cc=\"nav_link_sec_3_4\" tabindex=\"0\" touchstart=\"\">Secondary item four</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_3_5\" cc=\"nav_link_sec_3_5\" tabindex=\"0\" touchstart=\"\">Secondary item five</li>\n                  </ul>\n                </div>\n              </li>\n            </ul>\n          </li>\n          \n          <li class=\"dropdown yamm classic\"><a data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"primary_link_4\" cc=\"primary_link_4\" href=\"#\" data-toggle=\"dropdown\" class=\"dropdown-toggle\" aria-expanded=\"false\" touchstart=\"\">Primary four <span class=\"nav-arrow\" role=\"drop down arrow\"></span></a>\n            <ul class=\"dropdown-menu\">\n              <li>\n                <div>\n                  <ul>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_4_1\" cc=\"nav_link_sec_4_1\" tabindex=\"0\" touchstart=\"\">Secondary item one</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_4_2\" cc=\"nav_link_sec_4_2\" tabindex=\"0\" touchstart=\"\">Secondary item two</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_4_3\" cc=\"nav_link_sec_4_3\" tabindex=\"0\" touchstart=\"\">Secondary item three</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_4_4\" cc=\"nav_link_sec_4_4\" tabindex=\"0\" touchstart=\"\">Secondary item four</li>\n                    <li data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"nav_link_sec_4_5\" cc=\"nav_link_sec_4_5\" tabindex=\"0\" touchstart=\"\">Secondary item five</li>\n                  </ul>\n                </div>\n              </li>\n            </ul>\n          </li> -->\n\n          <!-- Classic -->\n          <li class=\"dropdown yamm classic\">\n            <a data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"primary_link_home\" cc=\"primary_link_home\" routerLink=\"/home\" aria-expanded=\"false\" touchstart=\"\">Home</a>\n          </li>\n          <li class=\"dropdown yamm classic\">\n              <a data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"primary_link_create\" cc=\"primary_link_create\" routerLink=\"/create\" aria-expanded=\"false\" touchstart=\"\">Create</a>\n          </li>\n          <li class=\"dropdown yamm classic\">\n              <a data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"primary_link_admin\" cc=\"primary_link_admin\" routerLink=\"/build\" aria-expanded=\"false\" touchstart=\"\">Build</a>\n          </li>\n          <li class=\"dropdown yamm classic\">\n              <a data-track-content data-content-name=\"Navigation-global-horizontal\" data-content-piece=\"primary_link_admin\" cc=\"primary_link_admin\" routerLink=\"/admin\" aria-expanded=\"false\" touchstart=\"\">Admin</a>\n          </li>\n\n          <!-- Utility Nav Mobile Profile, Notifications, Settings and Logout <li> goes here -->\n\n        </ul>\n      </div>\n    <!-- ** TOP NAVBAR ** -->\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/navbar/navbar.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/navbar/navbar.component.ts ***!
+  \********************************************/
+/*! exports provided: NavbarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavbarComponent", function() { return NavbarComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/* NavbarComponent is the navigation bar element that controls
+ * routing throughout PlanWizard. It conditionally shows pages
+ * a user can access based on their user role.
+ */
+var NavbarComponent = /** @class */ (function () {
+    function NavbarComponent() {
+    }
+    NavbarComponent.prototype.ngOnInit = function () {
+    };
+    NavbarComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-navbar',
+            template: __webpack_require__(/*! ./navbar.component.html */ "./src/app/navbar/navbar.component.html"),
+            styles: [__webpack_require__(/*! ./navbar.component.css */ "./src/app/navbar/navbar.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], NavbarComponent);
+    return NavbarComponent;
 }());
 
 
