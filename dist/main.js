@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"margin\" id=\"fullPage\">\r\n  <app-header></app-header>\r\n  <div class=\"content\">\r\n    <router-outlet></router-outlet>\r\n  <div>\r\n  <app-footer></app-footer>\r\n</div>  "
+module.exports = "<div class=\"margin\" id=\"fullPage\">\n  <app-header></app-header>\n  <router-outlet></router-outlet>\n  <app-footer></app-footer>\n</div>  "
 
 /***/ }),
 
@@ -277,7 +277,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"text-success\">\r\n  footer works!\r\n</p>\r\n"
+module.exports = "<p class=\"text-success\">\n  footer works!\n</p>\n"
 
 /***/ }),
 
@@ -340,7 +340,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  gallery works!\r\n</p>\r\n"
+module.exports = "<p>\n  gallery works!\n</p>\n"
 
 /***/ }),
 
@@ -403,7 +403,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"text-primary\">\r\n  header works!\r\n</p>\r\n"
+module.exports = "<p class=\"text-primary\">\n  header works!\n</p>\n"
 
 /***/ }),
 
@@ -466,7 +466,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ul>\r\n  <li *ngFor=\"let user of users | async\">\r\n      <pre>{{user.name}}</pre>\r\n  </li>\r\n</ul>\r\n\r\n<div *ngFor=\"let image of images\">\r\n\t<img src=\"{{image.url}}\"/>\r\n</div>"
+module.exports = "<ul>\n  <li *ngFor=\"let user of users | async\">\n      <pre>{{user.name}}</pre>\n  </li>\n</ul>\n\n<div *ngFor=\"let image of images\">\n\t<img src=\"{{image.url}}\"/>\n</div>"
 
 /***/ }),
 
@@ -717,6 +717,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! /Users/jmo/Documents/viaStory-console/src/main.ts */"./src/main.ts");
+
 
 /***/ })
 
