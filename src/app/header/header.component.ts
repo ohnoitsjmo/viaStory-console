@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
-// import { UserService } from '../user.service';
+import { UserService } from '../user.service';
 // import { UserObject } from '../userobject';
 
 /* HeaderComponent is the header element that displays at the top of
@@ -16,10 +16,21 @@ import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 export class HeaderComponent implements OnInit {
   loggedIn : boolean = false;
   // myUser : UserObject;
-  constructor(private route: ActivatedRoute,private router:Router){}//,private user:UserService) { }
+  username:string="";
+  constructor(private route: ActivatedRoute,private router:Router,private userService:UserService) { }
 
   ngOnInit() {
-    this.loggedIn=true;
+    this.router.events.subscribe((event) => {
+      if(event instanceof NavigationEnd) {
+        if(this.router.url == "/") {
+          this.loggedIn=false;
+        }
+        else {
+          this.loggedIn=true;
+        }
+      }
+    })
+    this.username=this.userService.username;
   //   this.router.events
   //   .subscribe((event) => {
   //     if(event instanceof NavigationEnd ){

@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class UserService {
   username="";
   password="";
+  loggedIn:boolean=false;
   constructor() { }
 
   setUser(user) {
@@ -15,4 +16,5 @@ export class UserService {
   setPass(pass) {
     this.password = pass;
   }
+
 }

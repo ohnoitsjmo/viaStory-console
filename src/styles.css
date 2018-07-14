@@ -6,7 +6,7 @@ html {
     min-height: 100%;
   }
 .content {
-    margin-bottom: 165px; /* Margin bottom by footer height */
+    margin-bottom: 200px; /* Margin bottom by footer height */
   }
 .dark-footer {
     position: absolute;
