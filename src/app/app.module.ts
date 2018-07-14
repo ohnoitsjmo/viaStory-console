@@ -21,10 +21,17 @@ import { FeedComponent } from './feed/feed.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MapComponent } from './map/map.component';
 import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
+import { AuthguardGuard } from './authguard.guard';
 
 const appRoutes:Routes = [
   {
     path: '',
+    component: LoginComponent
+  },
+  {
+    path: 'home',
+    canActivate: [AuthguardGuard],
     component: HomeComponent
   },
   {
@@ -52,6 +59,7 @@ const appRoutes:Routes = [
     NavbarComponent,
     MapComponent,
     AdminComponent
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -70,7 +78,8 @@ const appRoutes:Routes = [
   entryComponents : [
   ],
   providers: [
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AuthguardGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -3,7 +3,7 @@ import { Images } from '../images';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
-import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 export interface Image { id: string; imagePath: string; imageURL: string; imageName: string; maintTs: number; }
 
