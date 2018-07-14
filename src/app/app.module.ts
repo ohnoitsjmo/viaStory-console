@@ -17,9 +17,12 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FeedComponent } from './feed/feed.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MapComponent } from './map/map.component';
+import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { AuthguardGuard } from './authguard.guard';
-
 
 const appRoutes:Routes = [
   {
@@ -30,6 +33,18 @@ const appRoutes:Routes = [
     path: 'home',
     canActivate: [AuthguardGuard],
     component: HomeComponent
+  },
+  {
+    path: 'feed',
+    component: FeedComponent
+  },
+  {
+    path: 'map',
+    component: MapComponent
+  },
+  {
+    path:'admin',
+    component: AdminComponent
   }
 ]
 
@@ -40,6 +55,10 @@ const appRoutes:Routes = [
     AppComponent,
     HomeComponent,
     GalleryComponent,
+    FeedComponent,
+    NavbarComponent,
+    MapComponent,
+    AdminComponent
     LoginComponent
   ],
   imports: [
