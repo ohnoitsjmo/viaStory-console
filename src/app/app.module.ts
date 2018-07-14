@@ -20,6 +20,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FeedComponent } from './feed/feed.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MapComponent } from './map/map.component';
+import { AdminComponent } from './admin/admin.component';
 
 const appRoutes:Routes = [
   {
@@ -29,6 +30,14 @@ const appRoutes:Routes = [
   {
     path: 'feed',
     component: FeedComponent
+  },
+  {
+    path: 'map',
+    component: MapComponent
+  },
+  {
+    path:'admin',
+    component: AdminComponent
   }
 ]
 
@@ -41,7 +50,8 @@ const appRoutes:Routes = [
     GalleryComponent,
     FeedComponent,
     NavbarComponent,
-    MapComponent
+    MapComponent,
+    AdminComponent
   ],
   imports: [
     BrowserAnimationsModule,
