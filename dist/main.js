@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  admin works!\n</p>\n"
+module.exports = "<app-navbar></app-navbar>\n\n<p>\n  admin works!\n</p>\n"
 
 /***/ }),
 
@@ -104,7 +104,7 @@ module.exports = ".hidden{\n    display:none;\n}\n.show{\n    display:block;\n}\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"margin\" id=\"fullPage\">\n  <app-header></app-header>\n  <router-outlet></router-outlet>\n  <app-footer></app-footer>\n</div>  "
+module.exports = "<div class=\"margin\" id=\"fullPage\">\n  <app-header></app-header>\n  <div class=\"content\">\n    <router-outlet></router-outlet>\n  </div>\n  <app-footer></app-footer>\n</div>  "
 
 /***/ }),
 
@@ -368,7 +368,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  feed works!\n</p>\n"
+module.exports = "<app-navbar></app-navbar>\n\n<p>\n  feed works!\n</p>\n"
 
 /***/ }),
 
@@ -420,7 +420,7 @@ var FeedComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".center {\n    text-align: center;\n}"
 
 /***/ }),
 
@@ -431,7 +431,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"text-success\">\n  footer works!\n</p>\n"
+module.exports = "<ng-container *ngIf=\"loggedIn\">        \n    <!-- Footer -->\n    <footer class=\"dark-footer\">\n\n            <!--Footer Links-->\n            <div class=\"footer-container green-footer\">\n        \n                <!-- Single Column footer -->\n                <div class=\"row single-col-footer\">\n                    <!--Grid column-->\n                    <div class=\"col-md-12 col-lg-12\">\n                        <p class=\"h6 footer-copyright text-center\">Copyright &copy; {{year}} Viasat,Inc.(v1.0.0)</p>\n                    </div>\n                    <!--Grid column-->\n                </div>\n                <!-- End Single Column footer -->\n        \n            </div>\n        \n            <div class=\"footer-container\">\n                <!-- Three Column Footer -->\n                <div class=\"row three-column-footer\">\n                    <!--Grid column-->\n                    <div class=\"col-md-12 col-md-3 col-lg-3\">\n                        <p class=\"h6 footer-copyright text-left\"><a routerLink='/home'>Home  </a>\n                            <a routerLink='/feed'>  Feed  </a><a routerLink='/map'>  Map  </a>\n                            <a routerLink='/admin'> Admin</a></p>\n                    </div>\n                    <!--Grid column-->\n                    <div class=\"col-md-12 col-md-6 col-lg-6\"></div> \n                    <!--Grid column-->\n                    <div class=\"col-md-12 col-md-3 col-lg-3\">\n                        <a data-track-content data-content-name=\"Footer-multi level\" data-content-piece=\"f_link_logo_1\" href=\"javascript:void(0);\"><img src=\"http://ux.viasat.io/wp-content/uploads/2017/12/logo_viasat_white.png\" class=\"footer-logo\" alt=\"Viasat Logo : Click to go back to homepage\"></a>\n                    </div>\n                    <!--Grid column-->\n        \n                </div>\n                <!-- End of Three Column Footer -->\n        \n            </div>\n        \n        </footer>\n        <!-- End of Footer -->\n</ng-container>"
 
 /***/ }),
 
@@ -446,6 +446,8 @@ module.exports = "<p class=\"text-success\">\n  footer works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FooterComponent", function() { return FooterComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -456,10 +458,47 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+/* FooterComponent is the footer element that displays at the bottom of each page
+ * and has navigation links as well as styling.
+ */
 var FooterComponent = /** @class */ (function () {
-    function FooterComponent() {
+    function FooterComponent(route, router, userService) {
+        this.route = route;
+        this.router = router;
+        this.userService = userService;
+        this.loggedIn = false;
     }
     FooterComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.router.events.subscribe(function (event) {
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationEnd"]) {
+                if (_this.router.url == "/") {
+                    _this.loggedIn = false;
+                }
+                else {
+                    _this.loggedIn = true;
+                }
+            }
+        });
+        this.year = new Date().getFullYear();
+        // this.router.events
+        // .subscribe((event) => {
+        //   if(event instanceof NavigationEnd ){
+        //     debugger;
+        //     if(this.router.url == "/"){
+        //       this.loggedIn = false;
+        //     } else {
+        //       this.loggedIn = true;
+        //       this.userService.getRole().then(res => {
+        //         this.myRole = res['loggedInUserRole'];
+        //         this.isAdmin = res['loggedInUserRole'] == "Admin";
+        //         console.log(this.isAdmin);
+        //       })
+        //     }
+        //   }
+        // });
     };
     FooterComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -467,7 +506,7 @@ var FooterComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./footer.component.html */ "./src/app/footer/footer.component.html"),
             styles: [__webpack_require__(/*! ./footer.component.css */ "./src/app/footer/footer.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
     ], FooterComponent);
     return FooterComponent;
 }());
@@ -494,7 +533,7 @@ module.exports = ".logowidth{\n\twidth: 95px;\n}\n\n.betaheader {\n\tcolor: red;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container *ngIf=\"!loggedIn\">\n  <div class=\"container padzero\">\n   <div class=\"row padmarzero\">\n    <div class=\"col-md-2 col-lg-2 col-sm-2 col-xs-2\">\n    </div>\n    <div class=\"col-md-8 col-lg-8 col-sm-8 col-xs-8\">\n      <a routerLink=\"/home\">\n          <img class=\"img-responsive page-logo\" src=\"assets/viasat.png\"/>\n      </a>\n    </div>\n   <div class=\"col-md-2 col-lg-2 col-sm-2 col-xs-2\"></div>\n   </div>\n  </div>\n  </ng-container>\n  \n  <ng-container *ngIf=\"loggedIn\">\n    <div class=\"fw hdr\">\n      <!-- HEADER -->\n        <div class=\"hdr-bg\"></div>\n        <div class=\"hdr fw-vp\">\n          <div class=\"hdr-brand\">\n            <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_logo_1\" href=\"#\"><img src=\"http://ux.viasat.io/wp-content/uploads/2017/11/viasat-grd-logo.png\" class=\"\" alt=\"Viasat Logo : Click to go back to homepage\"></a>\n          </div>\n          <div class=\"hdr-utility\">\n            <button data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_button_search_1\" type=\"search\" class=\"btn btn-hdr\" name=\"search\" value=\"Search\" data-toggle=\"modal\" data-target=\"#searchModal\">\n              <i class=\"material-icons md-icon\">search</i>\n            </button>\n            <ul class=\"nav navbar-nav navbar-right\">\n              <li class=\"btn btn-hdr avatar-container\"> \n                <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_button_user_1\" href=\"#\" class=\"avatar-icon\" role=\"button\" aria-haspopup=\"true\" data-toggle=\"modal\" data-target=\"#profileModal\" aria-expanded=\"false\">{{ myUser.givenName }}<span class=\"nav-arrow\" role=\"drop down arrow\"></span></a> \n              </li> \n            </ul>\n            <button (click)=\"user.logOutCurrentUser()\" class=\"btn btn-hdr\">  \n              <b>Log Out  </b>\n              <i class=\"material-icons md-icon\">exit_to_app</i>\n            </button>\n          </div>\n          <!--<div class=\"placeholder-div text-center\"><span class=\"h3\">Header FPO</span></div>-->\n          <!-- Search Modal -->\n          <div class=\"modal fade\" id=\"searchModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\">\n            <div class=\"modal-dialog search-modal-dialog\" role=\"document\">\n              <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                </div>\n                <div class=\"modal-body\">\n              <div class=\"row\">\n                    <div class=\"col-sm-6 col-md-12\">\n                        <div id=\"imaginary_container\"> \n                            <div class=\"input-group stylish-input-group\">\n                                <input type=\"text\" class=\"form-control\"  placeholder=\"Search any keyword\" >\n                                <span class=\"input-group-addon\">\n                                    <button data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_button_search_sec_1\" type=\"submit\">\n                                        <i class=\"material-icons md-icon md-search-icon\">search</i>\n                                    </button>  \n                                </span>\n                            </div>\n                        </div>\n                    </div>\n              </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <!-- End of Search Modal -->\n          <!-- Profile Modal -->\n          <div class=\"modal fade\" id=\"profileModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\">\n            <div class=\"modal-dialog profile-modal-dialog\" role=\"document\">\n              <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                </div>\n                <div class=\"modal-body\">\n                  <h1>{{ myUser.displayName }}</h1>\n                </div>\n                <div class=\"modal-footer\">\n                  <ul class=\"nav nav-tabs\">\n                    <li tabindex=\"0\"><a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_logout_1\"  data-toggle=\"tab\" href=\"#tab-three\">Log Out</a></li>\n                    <li tabindex=\"0\"><a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_settings_1\"  data-toggle=\"tab\" href=\"#tab-two\">Settings</a></li> \n                <li tabindex=\"0\"><a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_profile_sec_1\"  data-toggle=\"tab\" href=\"#tab-one\">Profile</a></li>       \n                </ul>\n                </div>\n              </div>\n            </div>\n          </div>\n          <!-- End of Profile Modal -->\n        </div>\n        <!-- TOP NAVBAR -->\n        <div class=\"hdr-navbar hide-desktop\"> <!-- add dark class for 'dark\" nav-->\n          <div class=\"navbar yamm fw-vp\">\n            <div class=\"navbar-header\">\n              <div class=\"hdr-brand hide-desktop\"><a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_logo_1\" href=\"#\"><img src=\"http://ux.viasat.io/wp-content/uploads/2017/11/viasat-grd-logo.png\" class=\"\" alt=\"Viasat Logo : Click to go back to homepage\"></a></div>\n              <button type=\"button\" data-toggle=\"collapse\" data-target=\"#navbar-collapse-grid\" class=\"navbar-toggle collapsed\" tabindex=\"0\" touchstart=\"\">\n                <div class=\"menu-text\">MENU</div>\n                <div class=\"menu-icon\">\n                  <span class=\"icon-bar top-bar\"></span>\n                  <span class=\"icon-bar middle-bar\"></span>\n                  <span class=\"icon-bar bottom-bar\"></span>\n                </div>\n              </button>\n            </div>\n            <div id=\"navbar-collapse-grid\" class=\"navbar-collapse collapse\">\n              <ul class=\"nav navbar-nav\" role=\"tablist\">\n                <li>\n                  <form class=\"navbar-form hide-desktop\"> \n                    <div class=\"form-group\"> \n                      <input class=\"form-control\" placeholder=\"Search keywords\">\n                      <i data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_button_search_2\" class=\"material-icons utility-nav-search-icon\">search</i>\n                    </div> \n                  </form>\n                </li>\n      \n                <!-- Navigation goes here -->\n      \n                <li class=\"hide-desktop\">\n                  <span class=\"utitlity-nav-divider\"></span>\n                </li>\n                <li class=\"hide-desktop\">\n                  <a href=\"#\" class=\"user-profile utility-nav-mobile\">\n                    <!-- <h3>{{ myUser.displayName }}</h3> -->\n                    <h3>Mark</h3>\n                  </a>\n                  <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_profile_sec_1\" href=\"#\" class=\"utility-nav-mobile\">View profile <i class=\"material-icons utility-nav-profile-icon\">person_outline</i>\n                  </a>\n                </li>\n                <li class=\"hide-desktop\">\n                  <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_button_notif_1\" href=\"#\" class=\"utility-nav-mobile\">Notifications <i class=\"material-icons md-icon utility-nav-notification-icon\">notifications_none</i><span class=\"badge badge-notify\">3</span></a>\n                </li>\n                <li class=\"hide-desktop\">\n                  <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_settings_1\" href=\"#\" class=\"utility-nav-mobile utility-nav-settings\">Settings <i class=\"material-icons utility-nav-settings-icon\">settings</i></a>\n                </li>\n                <li class=\"hide-desktop\">\n                  <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_logout_1\" href=\"#\" class=\"utility-nav-mobile utility-nav-logout\">Logout</a>\n                </li>\n              </ul>\n            </div>\n          </div>\n        </div>\n        <!-- ** TOP NAVBAR ** -->\n      </div>\n  \n  </ng-container>\n"
+module.exports = "<ng-container *ngIf=\"!loggedIn\">\n  <div class=\"container padzero\">\n   <div class=\"row padmarzero\">\n    <div class=\"col-md-2 col-lg-2 col-sm-2 col-xs-2\">\n    </div>\n    <div class=\"col-md-8 col-lg-8 col-sm-8 col-xs-8\">\n      <a routerLink=\"/home\">\n          <img class=\"img-responsive page-logo\" src=\"assets/viasat.png\"/>\n      </a>\n    </div>\n   <div class=\"col-md-2 col-lg-2 col-sm-2 col-xs-2\"></div>\n   </div>\n  </div>\n  </ng-container>\n  \n  <ng-container *ngIf=\"loggedIn\">\n    <div class=\"fw hdr\">\n      <!-- HEADER -->\n        <div class=\"hdr-bg\"></div>\n        <div class=\"hdr fw-vp\">\n          <div class=\"hdr-brand\">\n            <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_logo_1\" href=\"#\"><img src=\"http://ux.viasat.io/wp-content/uploads/2017/11/viasat-grd-logo.png\" class=\"\" alt=\"Viasat Logo : Click to go back to homepage\"></a>\n          </div>\n          <div class=\"hdr-utility\">\n            <button data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_button_search_1\" type=\"search\" class=\"btn btn-hdr\" name=\"search\" value=\"Search\" data-toggle=\"modal\" data-target=\"#searchModal\">\n              <i class=\"material-icons md-icon\">search</i>\n            </button>\n            <ul class=\"nav navbar-nav navbar-right\">\n              <li class=\"btn btn-hdr avatar-container\"> \n                <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_button_user_1\" href=\"#\" class=\"avatar-icon\" role=\"button\" aria-haspopup=\"true\" data-toggle=\"modal\" data-target=\"#profileModal\" aria-expanded=\"false\">{{ this.username }}<span class=\"nav-arrow\" role=\"drop down arrow\"></span></a> \n              </li> \n            </ul>\n            <button (click)=\"user.logOutCurrentUser()\" class=\"btn btn-hdr\">  \n              <b>Log Out  </b>\n              <i class=\"material-icons md-icon\">exit_to_app</i>\n            </button>\n          </div>\n          <!--<div class=\"placeholder-div text-center\"><span class=\"h3\">Header FPO</span></div>-->\n          <!-- Search Modal -->\n          <div class=\"modal fade\" id=\"searchModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\">\n            <div class=\"modal-dialog search-modal-dialog\" role=\"document\">\n              <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                </div>\n                <div class=\"modal-body\">\n              <div class=\"row\">\n                    <div class=\"col-sm-6 col-md-12\">\n                        <div id=\"imaginary_container\"> \n                            <div class=\"input-group stylish-input-group\">\n                                <input type=\"text\" class=\"form-control\"  placeholder=\"Search any keyword\" >\n                                <span class=\"input-group-addon\">\n                                    <button data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_button_search_sec_1\" type=\"submit\">\n                                        <i class=\"material-icons md-icon md-search-icon\">search</i>\n                                    </button>  \n                                </span>\n                            </div>\n                        </div>\n                    </div>\n              </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <!-- End of Search Modal -->\n          <!-- Profile Modal -->\n          <div class=\"modal fade\" id=\"profileModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\">\n            <div class=\"modal-dialog profile-modal-dialog\" role=\"document\">\n              <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\n                </div>\n                <div class=\"modal-body\">\n                  <h1>{{ this.username }}</h1>\n                </div>\n                <div class=\"modal-footer\">\n                  <ul class=\"nav nav-tabs\">\n                    <li tabindex=\"0\"><a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_logout_1\"  data-toggle=\"tab\" href=\"#tab-three\">Log Out</a></li>\n                    <li tabindex=\"0\"><a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_settings_1\"  data-toggle=\"tab\" href=\"#tab-two\">Settings</a></li> \n                <li tabindex=\"0\"><a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_profile_sec_1\"  data-toggle=\"tab\" href=\"#tab-one\">Profile</a></li>       \n                </ul>\n                </div>\n              </div>\n            </div>\n          </div>\n          <!-- End of Profile Modal -->\n        </div>\n        <!-- TOP NAVBAR -->\n        <div class=\"hdr-navbar hide-desktop\"> <!-- add dark class for 'dark\" nav-->\n          <div class=\"navbar yamm fw-vp\">\n            <div class=\"navbar-header\">\n              <div class=\"hdr-brand hide-desktop\"><a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_logo_1\" href=\"#\"><img src=\"http://ux.viasat.io/wp-content/uploads/2017/11/viasat-grd-logo.png\" class=\"\" alt=\"Viasat Logo : Click to go back to homepage\"></a></div>\n              <button type=\"button\" data-toggle=\"collapse\" data-target=\"#navbar-collapse-grid\" class=\"navbar-toggle collapsed\" tabindex=\"0\" touchstart=\"\">\n                <div class=\"menu-text\">MENU</div>\n                <div class=\"menu-icon\">\n                  <span class=\"icon-bar top-bar\"></span>\n                  <span class=\"icon-bar middle-bar\"></span>\n                  <span class=\"icon-bar bottom-bar\"></span>\n                </div>\n              </button>\n            </div>\n            <div id=\"navbar-collapse-grid\" class=\"navbar-collapse collapse\">\n              <ul class=\"nav navbar-nav\" role=\"tablist\">\n                <li>\n                  <form class=\"navbar-form hide-desktop\"> \n                    <div class=\"form-group\"> \n                      <input class=\"form-control\" placeholder=\"Search keywords\">\n                      <i data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_button_search_2\" class=\"material-icons utility-nav-search-icon\">search</i>\n                    </div> \n                  </form>\n                </li>\n      \n                <!-- Navigation goes here -->\n      \n                <li class=\"hide-desktop\">\n                  <span class=\"utitlity-nav-divider\"></span>\n                </li>\n                <li class=\"hide-desktop\">\n                  <a href=\"#\" class=\"user-profile utility-nav-mobile\">\n                    <h3>{{ this.username }}</h3>\n                  </a>\n                  <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_profile_sec_1\" href=\"#\" class=\"utility-nav-mobile\">View profile <i class=\"material-icons utility-nav-profile-icon\">person_outline</i>\n                  </a>\n                </li>\n                <li class=\"hide-desktop\">\n                  <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_button_notif_1\" href=\"#\" class=\"utility-nav-mobile\">Notifications <i class=\"material-icons md-icon utility-nav-notification-icon\">notifications_none</i><span class=\"badge badge-notify\">3</span></a>\n                </li>\n                <li class=\"hide-desktop\">\n                  <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_settings_1\" href=\"#\" class=\"utility-nav-mobile utility-nav-settings\">Settings <i class=\"material-icons utility-nav-settings-icon\">settings</i></a>\n                </li>\n                <li class=\"hide-desktop\">\n                  <a data-track-content data-content-name=\"Header-utility\" data-content-piece=\"h_link_logout_1\" href=\"#\" class=\"utility-nav-mobile utility-nav-logout\">Logout</a>\n                </li>\n              </ul>\n            </div>\n          </div>\n        </div>\n        <!-- ** TOP NAVBAR ** -->\n      </div>\n  \n  </ng-container>\n"
 
 /***/ }),
 
@@ -510,6 +549,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -521,21 +561,34 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-// import { UserService } from '../user.service';
+
 // import { UserObject } from '../userobject';
 /* HeaderComponent is the header element that displays at the top of
  * each page and has log out functionality as well as search and a
  * logo that links back home.
  */
 var HeaderComponent = /** @class */ (function () {
-    // myUser : UserObject;
-    function HeaderComponent(route, router) {
+    function HeaderComponent(route, router, userService) {
         this.route = route;
         this.router = router;
+        this.userService = userService;
         this.loggedIn = false;
-    } //,private user:UserService) { }
+        // myUser : UserObject;
+        this.username = "";
+    }
     HeaderComponent.prototype.ngOnInit = function () {
-        this.loggedIn = true;
+        var _this = this;
+        this.router.events.subscribe(function (event) {
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationEnd"]) {
+                if (_this.router.url == "/") {
+                    _this.loggedIn = false;
+                }
+                else {
+                    _this.loggedIn = true;
+                }
+            }
+        });
+        this.username = this.userService.username;
         //   this.router.events
         //   .subscribe((event) => {
         //     if(event instanceof NavigationEnd ){
@@ -559,7 +612,7 @@ var HeaderComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./header.component.html */ "./src/app/header/header.component.html"),
             styles: [__webpack_require__(/*! ./header.component.css */ "./src/app/header/header.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"]])
     ], HeaderComponent);
     return HeaderComponent;
 }());
@@ -586,7 +639,7 @@ module.exports = "div.gallery {\n    margin: 30px;\n    border: 1px solid #ccc;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<html>\n<head>\n</head>\n<body>\n\n<div class=\"gallery\" *ngFor=\"let image of images\">\n  <a target=\"_blank\" href=\"/share\">\n    <img src=\"{{image.url}}\" alt=\"Cinque Terre\" width=\"300\" height=\"200\">\n  </a>\n  <div class=\"desc\">Posted by: {{image.username}}</div>\n</div>\n\n</body>\n</html>"
+module.exports = "<app-navbar></app-navbar>\n\n<div class=\"container-fluid text-center\">\n  <ul>\n    <li *ngFor=\"let user of users | async\">\n        <pre>{{user.name}}</pre>\n    </li>\n  </ul>\n\n<div class=\"gallery\" *ngFor=\"let image of images\">\n  <a target=\"_blank\" href=\"/share\">\n    <img src=\"{{image.url}}\" alt=\"Cinque Terre\" width=\"300\" height=\"200\">\n  </a>\n  <div class=\"desc\">Posted by: {{image.username}}</div>\n</div>\n\n</body>\n</html>"
 
 /***/ }),
 
@@ -699,6 +752,7 @@ var LoginComponent = /** @class */ (function () {
         this.user = user;
         this.router = router;
         this.http = http;
+        this.loggedIn = false;
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
@@ -741,7 +795,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  map works!\n</p>\n"
+module.exports = "<app-navbar></app-navbar>\n\n<p>\n  map works!\n</p>\n"
 
 /***/ }),
 
@@ -953,6 +1007,7 @@ var UserService = /** @class */ (function () {
     function UserService() {
         this.username = "";
         this.password = "";
+        this.loggedIn = false;
     }
     UserService.prototype.setUser = function (user) {
         this.username = user;
