@@ -1,5 +1,79 @@
 <app-navbar></app-navbar>
 
-<p>
-  admin works!
-</p>
+<table class = "centered">
+<!-- <div class = "container-fluid"> -->
+  <div class="container">
+    <div class="col-md-6">
+      <section>
+      <div class="panel panel-default">
+      <h3 class="text-center">Add Admins</h3>
+      <div class="panel-body">
+      <div class="input-group">
+          <label class = "center-label">Enter Admin Username:</label>
+          <input [(ngModel)]="usernameToAdd" type="text" class="form-control" placeholder="Enter Viasat username">
+      </div>
+      <br>
+      <button type="submit"  (click)= "addAdmin()" class="btn centered">Add Admin</button>
+      <br>
+      <br>
+      <div class="alert alert-success" role="alert" *ngIf="addServerMessage == 'Admin Added Successfully'">
+          <strong>{{addServerMessage}}</strong>
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="addServerMessage == 'Please enter a name'">
+          <strong>{{addServerMessage}}</strong>
+      </div>
+      </div>
+      </div>
+      </section>
+    </div>
+
+    <div class="col-md-6">
+      <section>
+        <div class="panel panel-default">
+        <h3 class="text-center">Remove Admins</h3>
+        <div class="panel-body">
+        <div class="input-group">
+          <label class="center-label">Enter Username to Remove</label>
+          <input [(ngModel)] = "usernameToRemove" type="text" class="form-control" placeholder="Enter Viasat username">
+        </div>     
+        <br>   
+        <button type="submit" (click) = "removeAdmin()" class="btn centered">Remove Admin</button>
+        <br>
+        <br>
+        <!-- <div class="alert alert-success" role="alert" *ngIf="removeServerMessage.length > 0">
+            <strong>{{removeServerMessage}}</strong>
+        </div> -->
+        <div class="alert alert-success" role="alert" *ngIf="removeServerMessage == 'Admin Removed Successfully'">
+            <strong>{{removeServerMessage}}</strong>
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="removeServerMessage == 'User is not in Admin List'">
+          <strong>{{removeServerMessage}}</strong>
+        </div>
+
+        </div>
+        </div>
+        </section>
+
+    </div>
+   
+  </div>
+</table>
+
+<table class = "centered">
+    <div class="panel-default">
+    <!-- <div class="panel panel-default fixed-panel"> -->
+    <h2 class="text-center">Admin List</h2>
+    <div class="panel-body">
+    <!-- <div class= "currAdmin"> -->
+    <ng-container *ngFor = "let admin of currAdminList">
+        <tr><font size = "3">{{admin.adminUsername}}</font></tr>
+        <!-- <font size = "3"><tr>{{admin.adminUsername}}</tr></font>
+        <br> -->
+    </ng-container>
+    <!-- </div> -->
+    </div>
+    </div>
+</table>
+
+<!-- </div> -->
+

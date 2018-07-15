@@ -23,6 +23,7 @@ import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { AuthguardGuard } from './authguard.guard';
 import { ShareComponent } from './share/share.component';
+import { ImagefilterPipe } from './imagefilter.pipe';
 
 const appRoutes:Routes = [
   {
@@ -72,7 +73,8 @@ const appRoutes:Routes = [
     MapComponent,
     AdminComponent,
     LoginComponent,
-    ShareComponent
+    ShareComponent,
+    ImagefilterPipe
   ],
   imports: [
     BrowserAnimationsModule,

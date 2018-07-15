@@ -1,7 +1,15 @@
 <app-navbar></app-navbar>
-<div class="gallery" *ngFor="let image of images">
+<div>
+  <h3 style="display: inline-block;">Click on any to share! Categories:</h3>
+  <select [ngModelOptions]= "{standalone: true}" name="agileFieldRuleType" [(ngModel)] = "categories">
+    <ng-container *ngFor="let category of listofcats">
+      <option>{{category}}</option>
+    </ng-container>
+  </select>
+</div>
+<div class="gallery" *ngFor="let image of images | imagefilter: categories">
   <a routerLink="/share" (click)="user.setUrl(image.url)">
     <img src="{{image.url}}" width="300" height="200">
   </a>
-  <div class="desc">Posted by: {{image.username}}</div>
+  <div class="desc">Posted by: {{image.username}}<br/>{{image.location}}</div>
 </div>
