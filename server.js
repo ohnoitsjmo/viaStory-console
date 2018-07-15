@@ -24,5 +24,5 @@ app.get('*', function (req, res) {
 //   return res.json({username:});
 // });
 
-app.listen(8080);
-console.log("Server running on port 8080");
+app.listen(3000);
+console.log("Server running on port 3000");
