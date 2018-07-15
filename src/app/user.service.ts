@@ -6,15 +6,18 @@ import { Injectable } from '@angular/core';
 export class UserService {
   username="";
   password="";
-  loggedIn:boolean=false;
+  url="";
   constructor() { }
 
   setUser(user) {
     this.username = user;
   }
-  
+    
   setPass(pass) {
     this.password = pass;
   }
 
+  setUrl(url) {
+    this.url = url;
+  }
 }
