@@ -6,13 +6,9 @@ div {
 
 div.gallery {
     margin: 30px;
-    border: 1px solid #ccc;
+    border: 0px solid #ccc;
     float: left;
     width: 300px;
-}
-
-div.gallery:hover {
-    border: 1px solid #777;
 }
 
 div.gallery img {
