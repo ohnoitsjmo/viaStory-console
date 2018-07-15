@@ -20,5 +20,9 @@ app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, '/dist/index.html'));
 });
 
-app.listen(3000);
-console.log("Server running on port 3000");
+// app.post('checkAuth', function (req, res) {
+//   return res.json({username:});
+// });
+
+app.listen(8080);
+console.log("Server running on port 8080");
