@@ -21,4 +21,6 @@ div.gallery img {
 div.desc {
     padding: 15px;
     text-align: center;
+    background-color: #2D6A95;
+    color: #fff;
 }
