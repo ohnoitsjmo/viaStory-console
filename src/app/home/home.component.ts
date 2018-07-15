@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   users: Observable<any[]>;
   images: Images[];
-  listofcats: string[] = ["all", "project", "recreation", "event"];
+  listofcats: string[] = ["all", "food", "project", "recreation", "event"];
 
   constructor(private db: AngularFirestore, private user: UserService) {
       this.users = db.collection('/users').valueChanges();
