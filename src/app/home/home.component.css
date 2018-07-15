@@ -1,3 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+div {
+    text-align: center;
+}
+
 div.gallery {
     margin: 30px;
     border: 1px solid #ccc;
@@ -11,7 +17,7 @@ div.gallery:hover {
 
 div.gallery img {
     position: relative;
-    width:  300px;
+    width: 300px;
     height: 300px;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -19,8 +25,33 @@ div.gallery img {
 }
 
 div.desc {
-    padding: 15px;
+    padding: 10px;
     text-align: center;
     background-color: #2D6A95;
     color: #fff;
+    width:300px;
 }
+
+select {
+    height:30px;
+    position:fixed;
+    top:180px;
+    margin: 10px;
+    font: 400 12px/1.3 "Helvetica Neue", sans-serif;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid #377E83;
+    line-height: 1;
+    outline: 0;
+    color: 377E83;
+    border-color: #377E83;
+    padding: 0.65em 2.5em 0.55em 0.75em;
+    border-radius: 3px;
+    background: linear-gradient(#377E83, #377E83) no-repeat,
+                linear-gradient(-135deg, rgba(255,255,255,0) 50%, white 50%) no-repeat,
+                linear-gradient(-225deg, rgba(255,255,255,0) 50%, white 50%) no-repeat,
+                linear-gradient(#377E83, #377E83) no-repeat;
+    background-color: white;
+    background-size: 1px 100%, 20px 20px, 20px 20px, 20px 60%;
+    background-position: right 20px center, right bottom, right bottom, right bottom;   
+  }

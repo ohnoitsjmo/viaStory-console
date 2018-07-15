@@ -12,7 +12,6 @@ import { Observable } from '../../node_modules/rxjs';
 
 @Injectable()
 export class AuthguardGuard implements CanActivate {
-  userr:any;
 	constructor(private user: UserService, private db: AngularFirestore, private router:Router, private http:HttpClient) {}
 
   canActivate(

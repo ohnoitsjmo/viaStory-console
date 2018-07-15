@@ -1,0 +1,30 @@
+/* section{
+    width: 40vw;
+}
+  */
+
+  .centered {
+    /* float: none; */
+    margin: auto;
+  }
+  
+  .btn{
+      background-color: #008085;
+      color: #ffffff;
+  }
+  
+  .center-label{
+      text-align: center;
+  }
+  
+  .alert{
+      height: 80%;
+  }
+  
+  /* .fixed-panel{
+      min-width: 200%;
+  } */
+  
+  /* .currAdmins{
+      size: 100%;
+  } */
