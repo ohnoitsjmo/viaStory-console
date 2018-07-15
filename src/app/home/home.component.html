@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="gallery" *ngFor="let image of images">
-  <a target="_blank" href="/share">
-    <img src="{{image.url}}" alt="Cinque Terre" width="300" height="200">
+  <a routerLink="/share" (click)="user.setUrl(image.url)">
+    <img src="{{image.url}}" width="300" height="200">
   </a>
   <div class="desc">Posted by: {{image.username}}</div>
 </div>
